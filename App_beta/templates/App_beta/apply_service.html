@@ -1,0 +1,22 @@
+{% extends "App_beta/base.html" %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="container py-5">
+	<h3> Project details </h3>
+	<form method="post" action="{% url 'App_beta:apply_service' pk=project_pk %}">
+    	{% csrf_token %}
+        {{form|crispy}}
+        {% if form.non_field_errors %}
+          <ul class="errorlist">
+            {% for error in form.non_field_errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+         <button style="margin-top: 15px;" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% endblock content %}

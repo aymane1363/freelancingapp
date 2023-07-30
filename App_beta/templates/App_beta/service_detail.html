@@ -1,0 +1,95 @@
+{% extends "App_beta/base.html" %}
+{% block content %}
+<!-- <h1>Service {{ Service.title }}</h1>
+<img class="box-image" src="{{ Service.image.url }}" alt="Service Image">
+<h2>Category</h2>
+<p>{{ Service.category }}</p>
+
+<h2>Description</h2>
+<p>{{ Service.description }}</p>
+
+<h2>Basic price</h2>
+<p>{{ Service.basic_price }}</p>
+
+<div class="form-group">
+    <button class="btn btn-outline-info" type="submit">Get a service</button>
+    <small class="text-muted ml-2">
+    </small>
+</div>
+
+<a href="{% url 'App_beta:all' %}">Go back to list</a>
+</p> -->
+
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="bd-placeholder-img" width="100%" height="400" src="{{ Service.image.url }}" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+
+      <div class="container">
+        <div class="carousel-caption text-start">
+          <h1>{{ Service.title }}.</h1>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+      <div class="container">
+        <div class="carousel-caption">
+          <h1>Another example headline.</h1>
+          <p>Some representative placeholder content for the second slide of the carousel.</p>
+          <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+      <div class="container">
+        <div class="carousel-caption text-end">
+          <h1>One more for good measure.</h1>
+          <p>Some representative placeholder content for the third slide of this carousel.</p>
+          <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="card-container">
+
+      <div class="flex-row">
+        <div class="category_img">
+          <img src="https://th.bing.com/th/id/OIP.aYhNRtuXmScvknC_jy18vAHaHa?w=209&h=209&c=7&r=0&o=5&pid=1.7" alt="Category" class="small-image"/>
+          <p> {{ Service.category }} </p>
+        </div>
+        <div class="coin-base">
+          <img src="https://th.bing.com/th?id=OIP.68cIvnqFlk08umbgsQWicgHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="$$" class="small-image"/>
+          <p> {{ Service.basic_price }} $</p>
+        </div>
+        <div class="time-left">
+          <img src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png" alt="clock" class="small-image"/>
+          <p> Released : {{ Service.release_date }} </p>
+        </div>
+      </div>
+    <div class="card-attribute">
+      {{ Service.description }}
+    </div>
+    <a href="{% url 'App_beta:apply_service' Service.id %}" class="btn btn-outline-primary" role="button"> Apply </a>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% extends "App_beta/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<section class="py-2 text-center container">
+<div class="row">
+  <div class="col">
+    <!-- https://www.w3schools.com/howto/howto_css_search_button.asp -->
+    <div>
+      <form method="get">
+        <div class="input-group mb-1">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search" {% if search %} value="{{ search }}" {% endif %}>
+          <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+        </div>
+          {{ myFilter.form | crispy }}
+    </form>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!---->
+<div class="album py-5 bg-light">
+  <div class="container">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+      {% for Item in Services %}
+      <div class="col">
+        <div class="card shadow-sm">
+          <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ Item.image.url }}" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+
+          <div class="card-body">
+            <p class="card-title">{{ Item.title }}</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{% url 'App_beta:service_detail' Item.id %}">Explore</a></button>
+              </div>
+              <!-- <small class="text-muted">9 mins</small> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<!---->
+{% endblock content %}
